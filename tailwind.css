@@ -1,0 +1,1365 @@
+/*!
+Theme Name: ISM Theme
+Author: patricio-jp
+Author URI: https://github.com/patricio-jp
+Version: 1.0
+Text Domain: ism-theme
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    @apply scroll-smooth;
+}
+
+/* Header styles */
+
+.site-header {
+    @apply px-4;
+    @apply md:px-6;
+    @apply py-2.5;
+    /* @apply mb-6; */
+    @apply bg-white;
+    @apply dark:bg-gray-800;
+}
+
+.site-header > div {
+    @apply max-w-3xl;
+    @apply lg:max-w-5xl;
+    @apply xl:max-w-6xl;
+    @apply mx-auto;
+    @apply flex;
+    @apply items-center;
+    @apply justify-between;
+    @apply flex-col;
+    @apply lg:flex-row;
+}
+
+.site-title {
+    @apply text-3xl;
+    @apply lg:text-4xl;
+    @apply font-extrabold;
+    @apply text-black;
+    @apply dark:text-white;
+}
+
+/* Nav bar styles */
+
+#navBarToggle {
+    @apply mt-4;
+    @apply lg:hidden;
+    @apply rounded;
+    @apply text-base;
+    @apply leading-4;
+    @apply text-gray-900;
+    @apply dark:text-gray-50;
+    @apply px-3;
+    @apply py-1;
+    @apply border;
+    @apply shadow-sm;
+    @apply border-gray-900;
+    @apply dark:border-gray-50;
+    @apply hover:bg-gray-300;
+    @apply focus:bg-gray-300;
+    @apply focus-within:bg-gray-300;
+    @apply dark:hover:bg-gray-600;
+    @apply dark:focus:bg-gray-600;
+    @apply dark:focus-within:bg-gray-600;
+}
+
+#navbar {
+    @apply w-full;
+    @apply transition-all;
+    @apply duration-300;
+    @apply rounded;
+    @apply overflow-hidden;
+    @apply bg-gray-100;
+    @apply dark:bg-gray-700;
+    @apply lg:block;
+    @apply lg:bg-transparent;
+    @apply lg:dark:bg-transparent;
+    @apply lg:w-2/5;
+    @apply lg:overflow-visible;
+}
+
+.navbar-nav {
+    @apply flex;
+    @apply flex-col;
+    @apply lg:flex-row;
+    @apply lg:items-center;
+    @apply lg:justify-end;
+}
+
+.menu-item {
+    @apply min-w-max;
+    @apply lg:relative;
+    /* @apply max-w-[32ch]; */
+}
+
+.menu-item a{
+    /* @apply block; */
+    @apply px-4;
+    @apply py-3;
+}
+
+.menu-item .nav-link.active,
+.menu-item .nav-link.active .dropdownToggle [data-fa-i2svg],
+.menu-item .dropdown-item.active,
+.menu-item .dropdown-menu.active,
+.menu-item .dropdown-menu.active .dropdownToggle [data-fa-i2svg] {
+    @apply text-blue-600;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.dropdown-item:hover,
+.dropdown-item:focus,
+.nav-link:hover > .dropdownToggle [data-fa-i2svg],
+.nav-link:focus > .dropdownToggle [data-fa-i2svg],
+.dropdown-item:hover > .dropdownToggle [data-fa-i2svg],
+.dropdown-item:focus > .dropdownToggle [data-fa-i2svg] {
+    @apply text-blue-500;
+}
+
+.nav-link, .dropdown-item {
+    @apply text-gray-900;
+    @apply dark:text-gray-50;
+    @apply flex;
+    @apply items-center;
+    @apply justify-between;
+    @apply z-10;
+    @apply lg:hover:text-blue-500;
+    @apply lg:focus:text-blue-500;
+}
+
+.nav-link:hover > .dropownToggle > [data-fa-i2svg],
+.nav-link:focus > .dropownToggle > [data-fa-i2svg],
+.dropdown-item:hover > .dropownToggle > [data-fa-i2svg],
+.dropdown-item:focus > .dropownToggle > [data-fa-i2svg] {
+    @apply text-blue-500;
+}
+
+.nav-link .dropdownToggle, .dropdown-menu .dropdownToggle {
+    @apply text-base;
+    @apply leading-4;
+    @apply text-gray-900;
+    @apply dark:text-gray-50;
+    @apply px-3;
+    @apply lg:pr-0;
+    @apply py-1;
+}
+
+.dropdown-menu {
+    @apply hidden;
+}
+
+
+.dropdown-menu.active {
+    @apply flex;
+    @apply flex-col;
+    @apply rounded;
+    @apply mt-3;
+    @apply lg:mt-0;
+    @apply mx-4;
+    @apply lg:mx-0;
+    /* @apply lg:target:hidden; */
+    @apply lg:absolute;
+}
+
+.dropdown-menu.active > .menu-item {
+    @apply bg-gray-200;
+    @apply dark:bg-gray-600;
+}
+
+.dropdown-menu.active > .dropdown-menu {
+    @apply flex;
+    @apply flex-col;
+}
+
+/* To 2nd level <li> items */
+.menu-item-has-children:hover > .nav-item,
+.menu-item-has-children:focus > .nav-item,
+.menu-item-has-children:hover > .dropdown-item,
+.menu-item-has-children:focus > .dropdown-item,
+.menu-item-has-children:hover > .nav-item > .dropdownToggle,
+.menu-item-has-children:focus > .nav-item > .dropdownToggle,
+.menu-item-has-children:hover > .dropdown-item > .dropdownToggle,
+.menu-item-has-children:focus > .dropdown-item > .dropdownToggle {
+    @apply text-blue-500;
+}
+
+/* To <ul> tags in menu (2nd level and down levels) */
+.menu-item-has-children:hover > .dropdown-menu,
+.menu-item-has-children:focus > .dropdown-menu,
+.menu-item-has-children:focus-within > .dropdown-menu,
+.menu-item-has-children > .dropdown-menu.active {
+    @apply lg:flex;
+    @apply lg:flex-col;
+    @apply lg:bg-gray-200;
+    @apply lg:dark:bg-gray-600;
+    @apply lg:rounded;
+    /* @apply lg:mt-3; */
+    @apply lg:absolute;
+    @apply lg:right-0;
+    @apply lg:z-50;
+    /* @apply text-blue-500; */
+}
+
+/* To <li> tags in menu (when it has 3 levels) */
+.menu-item-has-children:hover > .dropdown-menu > .nav-item,
+.menu-item-has-children:focus > .dropdown-menu > .nav-item,
+.menu-item-has-children:focus-within > .dropdown-menu > .nav-item {
+    @apply lg:flex;
+    @apply lg:flex-col;
+    @apply lg:bg-gray-200;
+    @apply lg:dark:bg-gray-600;
+    @apply lg:rounded;
+}
+
+/* Fix background for 3rd level of dropdown */
+.menu-item-has-children:hover > .dropdown-menu > .nav-item > .dropdown-menu,
+.menu-item-has-children:focus > .dropdown-menu > .nav-item > .dropdown-menu,
+.menu-item-has-children:focus-within > .dropdown-menu > .nav-item > .dropdown-menu,
+.menu-item-has-children > .dropdown-menu.active > .nav-item > .dropdown-menu.active {
+    @apply lg:bg-transparent;
+}
+
+/* Fix position for 3rd level of dropdown */
+.menu-item-has-children:hover > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item,
+.menu-item-has-children:focus > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item,
+.menu-item-has-children:focus-within > .dropdown-menu > .nav-item:focus > .dropdown-menu > .nav-item,
+.dropdown-menu.active.depth_1 > .nav-item {
+    @apply lg:top-12;
+    @apply bg-gray-300;
+    @apply dark:bg-gray-500;
+}
+
+
+/* Main styles (pages/blog entries/entries list) */
+
+/* Featured image page styles */
+.page-featured-image .page-header {
+    @apply relative;
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+    @apply w-full;
+    @apply bg-cover;
+    @apply bg-center;
+    @apply bg-no-repeat;
+    @apply bg-blend-darken;
+    @apply h-[360px];
+    /* @apply lg:h-[480px]; */
+}
+
+.page-featured-image .page-header .bg-overlay {
+    @apply w-full;
+    @apply h-full;
+    @apply absolute;
+    @apply top-0;
+    @apply left-0;
+    @apply bg-black;
+    @apply bg-opacity-50;
+}
+
+.page-featured-image .page-header div:last-child{
+    @apply absolute;
+    @apply top-20;
+    @apply left-1/2;
+    @apply mx-auto;
+    @apply w-full;
+    @apply transform;
+    @apply -translate-x-1/2;
+    @apply px-12;
+    @apply lg:top-1/3;
+    @apply lg:px-6;
+    @apply lg:max-w-4xl;
+    @apply z-10;
+}
+
+.page-featured-image .page-header .entry-title {
+    @apply text-white;
+    @apply font-bold;
+    @apply text-3xl;
+    @apply md:text-4xl;
+    @apply leading-10;
+}
+
+.page-featured-image .entry-content {
+    @apply relative;
+    @apply z-20;
+    @apply -mt-36;
+    @apply mx-6;
+    @apply max-w-screen-xl;
+    @apply rounded;
+    @apply p-6;
+    @apply bg-gray-100;
+    @apply dark:bg-gray-800;
+    @apply shadow-lg;
+    @apply lg:-mt-32;
+    @apply lg:mx-auto;
+    @apply lg:max-w-4xl;
+}
+
+/* General styles */
+.body-container {
+    @apply mx-auto;
+    @apply my-6;
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+    @apply max-w-3xl;
+    @apply lg:max-w-5xl;
+    @apply xl:max-w-6xl;
+    @apply lg:flex-row;
+    @apply lg:justify-evenly;
+    @apply flex-grow-0;
+    @apply lg:space-x-6;
+    /* @apply lg:px-6; */
+}
+
+.body-container > main {
+    @apply w-full;
+    @apply lg:w-2/3;
+    @apply px-6;
+    @apply lg:px-0;
+}
+
+.pageContainer {
+    @apply p-6;
+    @apply mx-auto;
+    @apply bg-white;
+    @apply rounded-lg;
+    @apply border;
+    @apply border-gray-200;
+    @apply shadow-md;
+    @apply dark:bg-gray-800;
+    @apply dark:border-gray-700;
+    @apply max-w-3xl;
+    @apply lg:max-w-4xl;
+    @apply xl:max-w-5xl;
+}
+
+.pageContainer:not(:last-child) {
+    @apply mb-6;
+}
+
+.postsContainer {
+    @apply w-full;
+}
+
+.sectionDivider {
+    @apply max-w-4xl;
+    @apply mx-auto;
+    @apply my-6;
+    @apply md:my-8;
+    @apply border-t;
+    @apply border-gray-200;
+    @apply dark:border-gray-700;
+}
+
+.post-header {
+    @apply mb-2;
+}
+
+.page-header {
+    @apply mb-4;
+}
+
+.page-title {
+    @apply mb-6;
+}
+
+.archive-description {
+    @apply mb-4;
+}
+
+.entry-title {
+    @apply text-3xl;
+    @apply font-bold;
+    @apply text-black;
+    @apply dark:text-white;
+    @apply mb-2;
+}
+
+.entry-title > a {
+    @apply hover:underline;
+    @apply focus:underline;
+}
+
+.read_more_link {
+    @apply text-base;
+    @apply mt-2;
+    @apply inline-flex;
+    @apply items-center;
+    @apply text-blue-600;
+    @apply hover:underline;
+}
+
+.read_more_link [data-fa-i2svg] {
+    @apply w-4;
+    @apply h-4;
+    @apply ml-1;
+}
+
+h1 {
+    @apply text-4xl;
+    @apply font-bold;
+    @apply mb-4;
+}
+
+h2 {
+    @apply text-3xl;
+    @apply font-bold;
+    @apply mb-3;
+}
+
+h3 {
+    @apply text-2xl;
+    @apply font-bold;
+    @apply mb-2;
+}
+
+h4 {
+    @apply text-xl;
+    @apply font-bold;
+    @apply mb-2;
+}
+
+h5 {
+    @apply text-lg;
+    @apply font-bold;
+    @apply mb-2;
+}
+
+h6 {
+    @apply text-base;
+    @apply font-bold;
+    @apply mb-2;
+}
+
+label {
+    @apply font-bold;
+    @apply text-gray-900;
+    @apply dark:text-gray-50;
+}
+
+input, textarea {
+    @apply block;
+    @apply w-full;
+    @apply rounded-md;
+    @apply border;
+    @apply border-gray-300;
+    @apply bg-gray-100;
+    @apply px-3;
+    @apply py-2;
+    @apply font-normal;
+    @apply text-base;
+    @apply text-gray-900;
+    @apply dark:text-gray-50;
+    @apply shadow-sm;
+    @apply dark:border-gray-600;
+    @apply dark:bg-gray-700;
+    @apply focus:outline-none;
+    @apply focus:ring-blue-500;
+    @apply focus:border-blue-500;
+    /* @apply focus:z-10; */
+}
+
+input.wpcf7-not-valid, textarea.wpcf7-not-valid {
+    @apply border-red-500;
+    @apply bg-red-50;
+    /* @apply dark:border-red-500; */
+    /* @apply dark:bg-red-700; */
+}
+
+label > span > input, label > span > textarea {
+    @apply mt-2;
+}
+
+input[type="submit"], button[type="submit"] {
+    @apply appearance-none;
+    @apply block;
+    @apply w-min;
+    @apply mx-auto;
+    @apply px-3;
+    @apply py-2;
+    @apply text-base;
+    @apply leading-6;
+    @apply text-center;
+    @apply text-white;
+    @apply transition;
+    @apply duration-150;
+    @apply ease-in-out;
+    @apply bg-blue-600;
+    @apply border;
+    @apply border-transparent;
+    @apply rounded-md;
+    @apply hover:bg-blue-500;
+    @apply focus:bg-blue-500;
+    @apply focus:outline-none;
+    @apply focus:border-blue-700;
+    @apply active:bg-blue-700;
+}
+
+.entry-content p {
+    @apply text-base;
+    @apply text-gray-900;
+    @apply dark:text-gray-50;
+    @apply mb-4;
+}
+
+.entry-content blockquote {
+    @apply border-l-4;
+    @apply border-blue-600;
+    @apply pl-4;
+    @apply rounded;
+}
+
+.entry-content blockquote p::before, .entry-content blockquote p::after {
+    content: "\"";
+}
+
+.entry-content blockquote p {
+    @apply text-base;
+    @apply italic;
+    @apply text-gray-700;
+    @apply dark:text-gray-300;
+}
+
+.entry-content figure > figcaption {
+    @apply text-sm;
+    @apply text-gray-500;
+    @apply dark:text-gray-400;
+    @apply text-center;
+}
+
+.entry-content a, .no-results a {
+    @apply text-blue-500;
+    @apply hover:underline;
+    @apply focus:underline;
+    @apply hover:text-blue-400;
+    @apply focus:text-blue-400;
+    /* @apply underline; */
+}
+
+.entry-content a:hover {
+    @apply text-blue-600;
+}
+
+.entry-content hr {
+    @apply border-t;
+    @apply border-gray-200;
+    @apply dark:border-gray-700;
+    @apply my-8;
+}
+
+.entry-content .wp-block-button > a {
+    @apply inline-block;
+    @apply px-4;
+    @apply py-2;
+    @apply text-base;
+    @apply font-medium;
+    @apply no-underline;
+    @apply leading-6;
+    @apply text-center;
+    @apply text-white;
+    @apply transition;
+    @apply duration-150;
+    @apply ease-in-out;
+    @apply bg-blue-600;
+    @apply border;
+    @apply border-transparent;
+    @apply rounded-md;
+    @apply hover:bg-blue-500;
+    @apply focus:outline-none;
+    @apply focus:border-blue-700;
+    @apply active:bg-blue-700;
+}
+
+.entry-content .wp-block-button.is-style-outline > a {
+    @apply bg-transparent;
+    @apply border-2;
+    @apply border-blue-600;
+    @apply text-blue-600;
+    @apply hover:bg-blue-600;
+    @apply hover:text-white;
+}
+
+table {
+    @apply w-full;
+    @apply my-4;
+    @apply border-collapse;
+    @apply border;
+    @apply border-gray-200;
+    @apply dark:border-gray-700;
+}
+
+table th {
+    @apply bg-gray-200;
+    @apply dark:bg-gray-900;
+    @apply border;
+    @apply border-gray-300;
+    @apply dark:border-gray-600;
+    @apply text-left;
+    @apply py-2;
+    @apply px-4;
+}
+
+table td {
+    @apply border;
+    @apply border-gray-300;
+    @apply dark:border-gray-600;
+    /* @apply text-left; */
+    @apply py-2;
+    @apply px-4;
+}
+
+table td.has-text-align-center img {
+    @apply mx-auto;
+}
+
+table tr:nth-child(odd) {
+    @apply bg-white;
+    @apply dark:bg-gray-800;
+}
+
+table tr:nth-child(even) {
+    @apply bg-gray-50;
+    @apply dark:bg-gray-700;
+}
+
+.entry-content ul, .entry-content ol {
+    @apply list-disc;
+    @apply list-inside;
+    @apply mb-4;
+}
+
+.searchform div {
+    @apply flex;
+    @apply items-center;
+    @apply w-full;
+}
+
+.searchform input[type="text"] {
+    @apply flex-1;
+    @apply appearance-none;
+    @apply block;
+    @apply mr-4;
+    @apply w-full;
+    @apply px-3;
+    @apply py-2;
+    @apply text-base;
+    @apply leading-6;
+    @apply text-gray-900;
+    @apply dark:text-gray-50;
+    @apply bg-gray-50;
+    @apply dark:bg-gray-800;
+    @apply border;
+    @apply border-gray-300;
+    @apply dark:border-gray-600;
+    @apply rounded-md;
+    @apply focus:outline-none;
+    @apply focus:border-blue-300;
+    @apply dark:focus:border-blue-500;
+    @apply transition;
+    @apply duration-150;
+    @apply ease-in-out;
+}
+
+.wp-block-search label {
+    @apply font-bold;
+    /* @apply mb-4; */
+}
+
+.wp-block-search .wp-block-search__input {
+    @apply w-full;
+    @apply px-4;
+    @apply py-2;
+    @apply bg-gray-50;
+    @apply dark:bg-gray-700;
+    @apply text-base;
+    @apply leading-6;
+    @apply border;
+    @apply border-gray-300;
+    @apply dark:border-gray-600;
+    @apply rounded-md;
+    @apply focus:outline-none;
+    @apply focus:border-blue-300;
+    @apply transition;
+    @apply duration-150;
+    @apply ease-in-out;
+}
+
+.wp-block-search .wp-block-search__button {
+    @apply inline-block;
+    @apply p-2;
+    @apply text-base;
+    @apply font-medium;
+    @apply no-underline;
+    @apply leading-6;
+    @apply text-center;
+    @apply text-white;
+    @apply transition;
+    @apply duration-150;
+    @apply ease-in-out;
+    @apply bg-blue-600;
+    @apply border;
+    @apply border-transparent;
+    @apply rounded-md;
+    @apply hover:bg-blue-500;
+    @apply focus:outline-none;
+    @apply focus:border-blue-700;
+    @apply active:bg-blue-700;
+}
+
+.wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper {
+    @apply relative;
+    @apply rounded-md;
+    @apply p-0;
+    @apply border-0;
+    @apply border-none;
+}
+
+.wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input {
+    @apply block;
+    @apply w-full;
+    @apply p-3;
+    @apply pl-4;
+    @apply pr-14;
+    @apply bg-gray-50;
+    @apply dark:bg-gray-700;
+    @apply text-base;
+    @apply leading-6;
+    @apply border;
+    @apply border-solid;
+    @apply border-gray-300;
+    @apply dark:border-gray-600;
+    @apply rounded-md;
+    @apply focus:outline-none;
+    @apply focus:border-blue-300;
+    @apply transition;
+    @apply duration-150;
+    @apply ease-in-out;
+}
+
+
+.wp-block-search.wp-block-search__button-inside .wp-block-search__button {
+    @apply absolute;
+    @apply top-2.5;
+    @apply right-2.5;
+    @apply p-2;
+}
+
+
+/* Comments section */
+
+.no-comments {
+    @apply flex;
+    @apply items-center;
+    @apply mt-4;
+    @apply p-4;
+    @apply bg-red-100;
+    @apply text-red-700;
+    @apply rounded-lg;
+    @apply dark:bg-red-200;
+    @apply dark:text-red-800;
+}
+
+#comments {
+    @apply max-w-4xl;
+    @apply mx-auto;
+    /* @apply my-6; */
+}
+
+.comments-title {
+    @apply text-2xl;
+    @apply leading-tight;
+    @apply font-bold;
+    @apply text-black;
+    @apply dark:text-white;
+}
+
+.comment-body {
+    @apply mb-6;
+    @apply rounded-lg;
+    @apply border;
+    @apply border-gray-200;
+    @apply dark:border-gray-700;
+    @apply bg-white;
+    @apply dark:bg-gray-800;
+    @apply p-6;
+    @apply text-base;
+    @apply text-gray-500;
+    @apply dark:text-gray-400;
+    @apply shadow-sm;
+}
+
+.comment-meta {
+    @apply mb-2;
+    @apply flex;
+    @apply items-center;
+    @apply justify-between;
+}
+
+.comment-author {
+    @apply flex;
+    @apply items-center;
+}
+
+.avatar {
+    @apply mr-4;
+    @apply rounded-lg;
+}
+
+.children {
+    @apply ml-12;
+}
+
+.by-post-author {
+    @apply bg-blue-100;
+    @apply text-blue-800;
+    @apply inline-block;
+    @apply min-w-max;
+    @apply text-sm;
+    @apply font-semibold;
+    @apply mr-2;
+    @apply px-2.5;
+    @apply py-0.5;
+    @apply rounded;
+    @apply dark:bg-blue-200;
+}
+
+.comment-awaiting-moderation {
+    @apply bg-red-100;
+    @apply text-red-800;
+    @apply inline-block;
+    @apply min-w-max;
+    @apply text-sm;
+    @apply font-semibold;
+    @apply mr-2;
+    @apply px-2.5;
+    @apply py-0.5;
+    @apply rounded;
+    @apply dark:bg-red-200;
+    @apply dark:text-red-900;
+}
+
+.comment-reply-container {
+    @apply mt-4;
+    @apply flex;
+    @apply items-center;
+    @apply dark:text-white;
+}
+
+.comment-reply-link {
+    @apply hover:underline;
+}
+
+.comment-reply-title {
+    @apply text-lg;
+    @apply font-bold;
+    @apply text-gray-900;
+    @apply dark:text-white;
+}
+
+.comment-reply-title small {
+    @apply ml-4;
+}
+
+.comment-reply-title small a {
+    @apply bg-blue-100;
+    @apply hover:bg-blue-200;
+    @apply focus:bg-blue-200;
+    @apply text-blue-800;
+    @apply text-sm;
+    @apply font-semibold;
+    @apply px-2.5;
+    @apply py-0.5;
+    @apply rounded;
+    @apply dark:bg-blue-200;
+    @apply dark:text-blue-800;
+    @apply dark:hover:bg-blue-300;
+    @apply dark:focus:bg-blue-300;
+}
+
+.comment-form {
+    @apply mx-auto;
+    @apply grid;
+    @apply sm:grid-cols-2;
+    @apply gap-6;
+    @apply rounded-lg;
+    @apply border;
+    @apply p-6;
+    @apply bg-white;
+    @apply dark:bg-gray-800;
+    @apply border-gray-200;
+    @apply dark:border-gray-700;
+    @apply shadow-sm;
+    @apply my-6;
+}
+
+.comment-form > p > label {
+    @apply block;
+    @apply mb-2;
+    @apply text-sm;
+    @apply font-semibold;
+    @apply text-gray-900;
+    @apply dark:text-gray-300;
+}
+
+.comment-form > p > input, .comment-form > p > textarea {
+    @apply block;
+    @apply w-full;
+    @apply rounded-lg;
+    @apply border;
+    @apply border-gray-300;
+    @apply bg-gray-50;
+    @apply p-3;
+    @apply text-sm;
+    @apply text-gray-900;
+    @apply shadow-sm;
+    @apply dark:border-gray-600;
+    @apply dark:bg-gray-700;
+    @apply dark:text-white;
+    @apply focus:outline-none;
+    @apply focus:ring-blue-500;
+    @apply focus:border-blue-500;
+    @apply focus:z-10;
+}
+
+.comment-form a {
+    /* @apply text-blue-500; */
+    @apply hover:underline;
+    @apply hover:text-blue-400;
+    @apply focus:underline;
+    @apply focus:text-blue-400;
+}
+
+.comment-form .required-field-message {
+    @apply block;
+}
+
+.comment-notes {
+    @apply order-first;
+    @apply sm:col-span-2;
+}
+
+.comment-form-comment {
+    @apply order-4;
+    @apply sm:col-span-2;
+}
+
+.comment-form-author {
+    @apply order-1;
+    @apply sm:col-span-2;
+}
+
+.comment-form-email {
+    @apply order-2;
+}
+
+.comment-form-url {
+    @apply order-3;
+}
+
+.comment-form-cookies-consent {
+    @apply order-5;
+    @apply flex;
+    @apply items-center;
+    @apply sm:col-span-2;
+}
+
+.comment-form-cookies-consent > input[type="checkbox"] {
+    @apply w-auto;
+    @apply mr-4;
+}
+
+.comment-form-cookies-consent > label {
+    @apply mb-0 !important;
+    @apply font-medium !important;
+}
+
+.comment-form .form-submit {
+    @apply order-last;
+    @apply sm:col-span-2;
+}
+
+.comment-form .form-submit > input {
+    @apply w-fit;
+    @apply border-0;
+    @apply text-white;
+    @apply bg-blue-700;
+    @apply hover:bg-blue-800;
+    @apply focus:ring-4;
+    @apply focus:ring-blue-300;
+    @apply font-semibold;
+    @apply rounded-lg;
+    @apply px-5;
+    @apply py-2.5;
+    @apply transition;
+    @apply duration-200;
+    @apply ease-in-out;
+    @apply focus:outline-none;
+    @apply dark:bg-blue-600;
+    @apply dark:hover:bg-blue-700;
+    @apply dark:focus:ring-blue-800;
+}
+
+/* Post navigation (Next and previous post links) */
+
+.post-navigation {
+    @apply max-w-4xl;
+    @apply mx-auto;
+}
+
+.post-navigation .nav-links {
+    @apply w-full;
+    @apply grid;
+    @apply grid-cols-1;
+    @apply grid-rows-1;
+    @apply grid-flow-col;
+    @apply auto-cols-fr;
+    @apply gap-6;
+    @apply items-center;
+    @apply justify-between;
+    @apply mt-6;
+    @apply text-sm;
+}
+
+.post-navigation .nav-links .post-title {
+    @apply font-semibold;
+    @apply text-gray-900;
+    @apply dark:text-white;
+    @apply italic;
+}
+
+.post-navigation .nav-links a {
+    @apply p-2;
+    @apply sm:p-3;
+    @apply block;
+    @apply hover:bg-gray-200;
+    @apply dark:hover:bg-gray-700;
+}
+
+.post-navigation .nav-links .nav-previous {
+    @apply w-auto;
+    @apply max-w-xs;
+    @apply justify-self-start;
+    @apply bg-gray-100;
+    @apply rounded;
+    @apply border;
+    @apply border-gray-200;
+    @apply dark:bg-gray-800;
+    @apply dark:border-gray-700;
+}
+
+.post-navigation .nav-links .nav-next {
+    @apply w-auto;
+    @apply max-w-xs;
+    @apply justify-self-end;
+    @apply bg-gray-100;
+    @apply rounded;
+    @apply border;
+    @apply border-gray-200;
+    @apply dark:bg-gray-800;
+    @apply dark:border-gray-700;
+}
+
+/* Sidebar styles */
+.sidebar {
+    @apply lg:w-1/3;
+    @apply mx-6;
+    @apply mt-6;
+    @apply lg:mt-0;
+    @apply p-6;
+    @apply lg:self-start;
+    @apply lg:sticky;
+    @apply lg:top-6;
+    @apply bg-white;
+    @apply rounded-lg;
+    @apply shadow-md;
+    @apply dark:bg-gray-800;
+    @apply dark:border-gray-700;
+    @apply border-gray-200;
+    @apply border;
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-6;
+}
+
+.sidebar h2 {
+    @apply text-2xl;
+    @apply mb-3;
+}
+
+.sidebar ul {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-3;
+}
+
+.sidebar ul:not(:last-child) {
+    @apply mb-6;
+}
+
+.sidebar ul.is-grid {
+    @apply grid;
+    @apply grid-cols-1;
+    @apply lg:grid-cols-2;
+    @apply gap-2;
+    @apply lg:gap-4;
+}
+
+.sidebar ul.is-grid > li {
+    @apply w-full;
+    @apply m-0;
+}
+
+.sidebar ul > :not([hidden]) ~ :not([hidden]) { 
+    /* Fix sidebar links margin */
+    @apply m-0
+}
+
+.sidebar ul a, .sidebar ol a {
+    @apply text-gray-900;
+    @apply dark:text-gray-100;
+    @apply hover:text-blue-500;
+    /* @apply dark:hover:text-blue-600; */
+    @apply transition;
+    @apply duration-200;
+    @apply ease-in-out;
+}
+
+.sidebar ul div, .sidebar ul time {
+    @apply text-gray-600;
+    @apply dark:text-gray-400;
+    @apply text-sm;
+}
+
+.sidebar .wp-block-latest-posts:not(.is-grid) {
+    @apply flex;
+    @apply flex-col;
+    @apply space-y-2;
+}
+
+.sidebar .wp-block-latest-posts.is-grid .wp-block-latest-posts__featured-image {
+    @apply lg:m-0;
+    @apply lg:float-none;
+}
+
+.sidebar .wp-block-latest-posts.is-grid .wp-block-latest-posts__featured-image > img {
+    @apply mx-auto;
+}
+
+.sidebar .wp-block-latest-posts li {
+    @apply relative;
+}
+
+.sidebar .wp-block-latest-posts .wp-block-latest-posts__featured-image {
+    @apply w-32;
+    @apply float-right;
+    @apply mr-2;
+    @apply mt-2;
+}
+
+/* .sidebar .wp-block-latest-posts.is-grid .wp-block-latest-posts__featured-image.aligncenter {
+    @apply w-full;
+    @apply max-w-xs;
+    @apply mx-auto;
+    @apply mb-1;
+    @apply float-none;
+} */
+
+/* Footer styles */
+
+/* Top footer */
+
+.site-footer > div:first-child {
+    @apply bg-gray-100;
+    @apply dark:bg-gray-800;
+    @apply border-t;
+    @apply border-gray-200;
+    @apply dark:border-gray-700;
+}
+
+.topFooter {
+    @apply max-w-3xl;
+    @apply lg:max-w-5xl;
+    @apply xl:max-w-6xl;
+    @apply mx-auto;
+    @apply p-6;
+    @apply grid;
+    @apply grid-cols-4;
+    @apply gap-8;
+}
+
+.topFooter .site-info {
+    @apply text-gray-600;
+    @apply dark:text-gray-400;
+    @apply col-span-4;
+    @apply md:col-span-2;
+    @apply lg:col-span-1;
+}
+
+.site-description {
+    @apply mb-2;
+}
+
+.footer-site-link {
+    @apply flex;
+    @apply items-center;
+    @apply text-gray-900;
+    @apply dark:text-gray-50;
+    @apply text-lg;
+    @apply font-semibold;
+    @apply mb-2;
+}
+
+.footer-site-title {
+    @apply text-gray-900;
+    @apply dark:text-gray-50;
+    /* @apply text-lg; */
+    /* @apply font-semibold; */
+    @apply mb-2;
+}
+
+.footer-site-logo {
+    @apply w-10;
+    @apply h-10;
+    @apply mr-4;
+}
+
+.footer_widget {
+    @apply col-span-4;
+    @apply md:col-span-2;
+    @apply lg:col-span-1;
+    @apply text-gray-600;
+    @apply dark:text-gray-400;
+    @apply even:md:border-l;
+    @apply even:md:border-gray-200;
+    @apply even:md:dark:border-gray-700;
+    @apply even:md:pl-8;
+    @apply lg:border-l;
+    @apply lg:border-gray-200;
+    @apply dark:lg:border-gray-700;
+    @apply lg:pl-8;
+}
+
+.footer_widget ul {
+    @apply flex;
+    @apply flex-col;
+    /* @apply space-y-2; */
+}
+
+.footer_widget ul li {
+    @apply flex;
+    @apply items-center;
+    @apply lg:mb-2;
+}
+
+.footer_widget ul li a {
+    @apply pl-0;
+    @apply lg:p-0;
+    /* @apply text-gray-900; */
+    /* @apply dark:text-gray-100; */
+    @apply hover:text-blue-700;
+    @apply dark:hover:text-blue-500;
+    @apply transition;
+    @apply duration-200;
+    @apply ease-in-out;
+}
+
+.footer_widget ul li a > [data-fa-i2svg] {
+    @apply w-4;
+    @apply mr-2;
+}
+
+/* Bottom footer (copyright section and social links) */
+
+.site-footer > div:last-child {
+    @apply bg-gray-200;
+    @apply dark:bg-gray-700;
+    @apply border-t;
+    @apply border-gray-300;
+    @apply dark:border-gray-600;
+}
+
+.bottomFooter {
+    @apply max-w-3xl;
+    @apply lg:max-w-5xl;
+    @apply xl:max-w-6xl;
+    @apply mx-auto;
+    @apply flex;
+    @apply flex-col;
+    @apply md:flex-row;
+    @apply items-center;
+    @apply p-4;
+}
+
+.bottomFooter .copyright {
+    @apply text-center;
+    @apply mb-2;
+    @apply md:mb-0;
+    @apply md:text-left;
+}
+
+.socialMenu ul {
+    @apply flex;
+    @apply items-center;
+    @apply space-x-4;
+}
+
+.socialMenu a {
+    @apply text-lg;
+    @apply text-gray-800;
+    @apply dark:text-gray-200;
+    @apply hover:text-blue-500;
+    @apply focus:text-blue-500;
+}
+
+/* Styles for 404 page */
+.page404 section {
+    @apply mx-6;
+    @apply flex;
+    @apply flex-col;
+    @apply items-center;
+    @apply justify-center;
+    @apply h-96;
+}
+
+.page404 .page404__title {
+    @apply text-7xl;
+    @apply font-bold;
+    @apply text-blue-600;
+    /* @apply dark:text-blue-500; */
+}
+
+.page404 .page404__subtitle {
+    @apply text-3xl;
+    @apply text-gray-800;
+    @apply dark:text-gray-200;
+}
+
+.page404 .page404__text {
+    @apply text-center;
+    @apply text-gray-600;
+    @apply dark:text-gray-400;
+    @apply mb-4;
+}
+
+.page404 .page404__link {
+    @apply px-4;
+    @apply py-2;
+    @apply bg-blue-600;
+    /* @apply dark:bg-blue-500; */
+    @apply text-white;
+    @apply rounded-md;
+    @apply hover:bg-blue-700;
+    @apply focus:bg-blue-700;
+    /* @apply dark:hover:bg-blue-600; */
+    @apply transition;
+    @apply duration-200;
+    @apply ease-in-out;
+}
