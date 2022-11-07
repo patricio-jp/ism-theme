@@ -33,12 +33,12 @@
 			add_theme_support('custom-logo');
 
 			// Support for custom background color
-			add_theme_support(
+			/* add_theme_support(
 				'custom-background',
 				array(
 					'default-color' => 'f5efe0',
 				)
-			);
+			); */
 
 			// Let Wordpress manage <title> tag
 			add_theme_support( 'title-tag' );

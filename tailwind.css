@@ -13,6 +13,11 @@ html {
     @apply scroll-smooth;
 }
 
+body:not(.custom-background) {
+    @apply bg-white;
+    @apply dark:bg-gray-900;
+}
+
 /* Header styles */
 
 .site-header {
@@ -339,6 +344,13 @@ html {
     @apply max-w-3xl;
     @apply lg:max-w-4xl;
     @apply xl:max-w-5xl;
+}
+
+.pageContainer.no-bg {
+    @apply bg-transparent;
+    @apply dark:bg-transparent;
+    @apply border-none;
+    @apply shadow-none;
 }
 
 .pageContainer:not(:last-child) {

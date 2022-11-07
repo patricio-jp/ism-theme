@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class('bg-white dark:bg-gray-900 text-black dark:text-white'); ?>>
+<body <?php body_class('text-black dark:text-white'); ?>>
     <?php wp_body_open(); ?>
     <header class="site-header">
         <div>

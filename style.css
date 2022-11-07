@@ -6,7 +6,7 @@ Version: 1.0
 Text Domain: ism-theme
 */
 
-/*! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
+/*! tailwindcss v3.2.2 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -37,6 +37,7 @@ Text Domain: ism-theme
 2. Prevent adjustments of font size after orientation changes in iOS.
 3. Use a more readable tab size.
 4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
 */
 
 html {
@@ -51,6 +52,8 @@ html {
   /* 3 */
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   /* 4 */
+  font-feature-settings: normal;
+  /* 5 */
 }
 
 /*
@@ -417,54 +420,13 @@ video {
   height: auto;
 }
 
-*, ::before, ::after {
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x:  ;
-  --tw-pan-y:  ;
-  --tw-pinch-zoom:  ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-ordinal:  ;
-  --tw-slashed-zero:  ;
-  --tw-numeric-figure:  ;
-  --tw-numeric-spacing:  ;
-  --tw-numeric-fraction:  ;
-  --tw-ring-inset:  ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur:  ;
-  --tw-brightness:  ;
-  --tw-contrast:  ;
-  --tw-grayscale:  ;
-  --tw-hue-rotate:  ;
-  --tw-invert:  ;
-  --tw-saturate:  ;
-  --tw-sepia:  ;
-  --tw-drop-shadow:  ;
-  --tw-backdrop-blur:  ;
-  --tw-backdrop-brightness:  ;
-  --tw-backdrop-contrast:  ;
-  --tw-backdrop-grayscale:  ;
-  --tw-backdrop-hue-rotate:  ;
-  --tw-backdrop-invert:  ;
-  --tw-backdrop-opacity:  ;
-  --tw-backdrop-saturate:  ;
-  --tw-backdrop-sepia:  ;
+/* Make elements with the HTML hidden attribute stay hidden by default */
+
+[hidden] {
+  display: none;
 }
 
-::-webkit-backdrop {
+*, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -711,14 +673,14 @@ video {
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .bg-blue-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .p-6 {
@@ -785,6 +747,16 @@ video {
 
 html {
   scroll-behavior: smooth;
+}
+
+body:not(.custom-background) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.dark body:not(.custom-background) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
 /* Header styles */
@@ -987,7 +959,6 @@ html {
 }
 
 .menu-item {
-  min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
 }
@@ -1010,38 +981,38 @@ html {
   padding-bottom: 0.75rem;
 }
 
-.menu-item .nav-link.active, 
-.menu-item .nav-link.active .dropdownToggle [data-fa-i2svg], 
-.menu-item .dropdown-item.active, 
-.menu-item .dropdown-menu.active, 
+.menu-item .nav-link.active,
+.menu-item .nav-link.active .dropdownToggle [data-fa-i2svg],
+.menu-item .dropdown-item.active,
+.menu-item .dropdown-menu.active,
 .menu-item .dropdown-menu.active .dropdownToggle [data-fa-i2svg] {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
-.nav-link:hover, 
-.nav-link:focus, 
-.dropdown-item:hover, 
-.dropdown-item:focus, 
-.nav-link:hover > .dropdownToggle [data-fa-i2svg], 
-.nav-link:focus > .dropdownToggle [data-fa-i2svg], 
-.dropdown-item:hover > .dropdownToggle [data-fa-i2svg], 
+.nav-link:hover,
+.nav-link:focus,
+.dropdown-item:hover,
+.dropdown-item:focus,
+.nav-link:hover > .dropdownToggle [data-fa-i2svg],
+.nav-link:focus > .dropdownToggle [data-fa-i2svg],
+.dropdown-item:hover > .dropdownToggle [data-fa-i2svg],
 .dropdown-item:focus > .dropdownToggle [data-fa-i2svg] {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
-.nav-link,  .dropdown-item {
+.nav-link, .dropdown-item {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
-.dark .nav-link, .dark  .dropdown-item {
+.dark .nav-link,.dark  .dropdown-item {
   --tw-text-opacity: 1;
   color: rgb(249 250 251 / var(--tw-text-opacity));
 }
 
-.nav-link,  .dropdown-item {
+.nav-link, .dropdown-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1049,49 +1020,49 @@ html {
 }
 
 @media (min-width: 1024px) {
-  .nav-link:hover,  .dropdown-item:hover {
+  .nav-link:hover, .dropdown-item:hover {
     --tw-text-opacity: 1;
     color: rgb(59 130 246 / var(--tw-text-opacity));
   }
 
-  .nav-link:focus,  .dropdown-item:focus {
+  .nav-link:focus, .dropdown-item:focus {
     --tw-text-opacity: 1;
     color: rgb(59 130 246 / var(--tw-text-opacity));
   }
 }
 
-.nav-link:hover > .dropownToggle > [data-fa-i2svg], 
-.nav-link:focus > .dropownToggle > [data-fa-i2svg], 
-.dropdown-item:hover > .dropownToggle > [data-fa-i2svg], 
+.nav-link:hover > .dropownToggle > [data-fa-i2svg],
+.nav-link:focus > .dropownToggle > [data-fa-i2svg],
+.dropdown-item:hover > .dropownToggle > [data-fa-i2svg],
 .dropdown-item:focus > .dropownToggle > [data-fa-i2svg] {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
-.nav-link .dropdownToggle,  .dropdown-menu .dropdownToggle {
+.nav-link .dropdownToggle, .dropdown-menu .dropdownToggle {
   font-size: 1rem;
   line-height: 1rem;
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
-.dark .nav-link .dropdownToggle, .dark  .dropdown-menu .dropdownToggle {
+.dark .nav-link .dropdownToggle,.dark  .dropdown-menu .dropdownToggle {
   --tw-text-opacity: 1;
   color: rgb(249 250 251 / var(--tw-text-opacity));
 }
 
-.nav-link .dropdownToggle,  .dropdown-menu .dropdownToggle {
+.nav-link .dropdownToggle, .dropdown-menu .dropdownToggle {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
 
 @media (min-width: 1024px) {
-  .nav-link .dropdownToggle,  .dropdown-menu .dropdownToggle {
+  .nav-link .dropdownToggle, .dropdown-menu .dropdownToggle {
     padding-right: 0px;
   }
 }
 
-.nav-link .dropdownToggle,  .dropdown-menu .dropdownToggle {
+.nav-link .dropdownToggle, .dropdown-menu .dropdownToggle {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
@@ -1152,13 +1123,13 @@ html {
 
 /* To 2nd level <li> items */
 
-.menu-item-has-children:hover > .nav-item, 
-.menu-item-has-children:focus > .nav-item, 
-.menu-item-has-children:hover > .dropdown-item, 
-.menu-item-has-children:focus > .dropdown-item, 
-.menu-item-has-children:hover > .nav-item > .dropdownToggle, 
-.menu-item-has-children:focus > .nav-item > .dropdownToggle, 
-.menu-item-has-children:hover > .dropdown-item > .dropdownToggle, 
+.menu-item-has-children:hover > .nav-item,
+.menu-item-has-children:focus > .nav-item,
+.menu-item-has-children:hover > .dropdown-item,
+.menu-item-has-children:focus > .dropdown-item,
+.menu-item-has-children:hover > .nav-item > .dropdownToggle,
+.menu-item-has-children:focus > .nav-item > .dropdownToggle,
+.menu-item-has-children:hover > .dropdown-item > .dropdownToggle,
 .menu-item-has-children:focus > .dropdown-item > .dropdownToggle {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
@@ -1167,9 +1138,9 @@ html {
 /* To <ul> tags in menu (2nd level and down levels) */
 
 @media (min-width: 1024px) {
-  .menu-item-has-children:hover > .dropdown-menu, 
-.menu-item-has-children:focus > .dropdown-menu, 
-.menu-item-has-children:focus-within > .dropdown-menu, 
+  .menu-item-has-children:hover > .dropdown-menu,
+.menu-item-has-children:focus > .dropdown-menu,
+.menu-item-has-children:focus-within > .dropdown-menu,
 .menu-item-has-children > .dropdown-menu.active {
     display: flex;
     flex-direction: column;
@@ -1177,17 +1148,17 @@ html {
     background-color: rgb(229 231 235 / var(--tw-bg-opacity));
   }
 
-  .dark .menu-item-has-children:hover > .dropdown-menu, .dark 
-.menu-item-has-children:focus > .dropdown-menu, .dark 
-.menu-item-has-children:focus-within > .dropdown-menu, .dark 
+  .dark .menu-item-has-children:hover > .dropdown-menu,.dark 
+.menu-item-has-children:focus > .dropdown-menu,.dark 
+.menu-item-has-children:focus-within > .dropdown-menu,.dark 
 .menu-item-has-children > .dropdown-menu.active {
     --tw-bg-opacity: 1;
     background-color: rgb(75 85 99 / var(--tw-bg-opacity));
   }
 
-  .menu-item-has-children:hover > .dropdown-menu, 
-.menu-item-has-children:focus > .dropdown-menu, 
-.menu-item-has-children:focus-within > .dropdown-menu, 
+  .menu-item-has-children:hover > .dropdown-menu,
+.menu-item-has-children:focus > .dropdown-menu,
+.menu-item-has-children:focus-within > .dropdown-menu,
 .menu-item-has-children > .dropdown-menu.active {
     border-radius: 0.25rem;
   }
@@ -1201,9 +1172,9 @@ html {
 }
 
 @media (min-width: 1024px) {
-  .menu-item-has-children:hover > .dropdown-menu, 
-.menu-item-has-children:focus > .dropdown-menu, 
-.menu-item-has-children:focus-within > .dropdown-menu, 
+  .menu-item-has-children:hover > .dropdown-menu,
+.menu-item-has-children:focus > .dropdown-menu,
+.menu-item-has-children:focus-within > .dropdown-menu,
 .menu-item-has-children > .dropdown-menu.active {
     position: absolute;
     right: 0px;
@@ -1221,8 +1192,8 @@ html {
 /* To <li> tags in menu (when it has 3 levels) */
 
 @media (min-width: 1024px) {
-  .menu-item-has-children:hover > .dropdown-menu > .nav-item, 
-.menu-item-has-children:focus > .dropdown-menu > .nav-item, 
+  .menu-item-has-children:hover > .dropdown-menu > .nav-item,
+.menu-item-has-children:focus > .dropdown-menu > .nav-item,
 .menu-item-has-children:focus-within > .dropdown-menu > .nav-item {
     display: flex;
     flex-direction: column;
@@ -1230,15 +1201,15 @@ html {
     background-color: rgb(229 231 235 / var(--tw-bg-opacity));
   }
 
-  .dark .menu-item-has-children:hover > .dropdown-menu > .nav-item, .dark 
-.menu-item-has-children:focus > .dropdown-menu > .nav-item, .dark 
+  .dark .menu-item-has-children:hover > .dropdown-menu > .nav-item,.dark 
+.menu-item-has-children:focus > .dropdown-menu > .nav-item,.dark 
 .menu-item-has-children:focus-within > .dropdown-menu > .nav-item {
     --tw-bg-opacity: 1;
     background-color: rgb(75 85 99 / var(--tw-bg-opacity));
   }
 
-  .menu-item-has-children:hover > .dropdown-menu > .nav-item, 
-.menu-item-has-children:focus > .dropdown-menu > .nav-item, 
+  .menu-item-has-children:hover > .dropdown-menu > .nav-item,
+.menu-item-has-children:focus > .dropdown-menu > .nav-item,
 .menu-item-has-children:focus-within > .dropdown-menu > .nav-item {
     border-radius: 0.25rem;
   }
@@ -1247,9 +1218,9 @@ html {
 /* Fix background for 3rd level of dropdown */
 
 @media (min-width: 1024px) {
-  .menu-item-has-children:hover > .dropdown-menu > .nav-item > .dropdown-menu, 
-.menu-item-has-children:focus > .dropdown-menu > .nav-item > .dropdown-menu, 
-.menu-item-has-children:focus-within > .dropdown-menu > .nav-item > .dropdown-menu, 
+  .menu-item-has-children:hover > .dropdown-menu > .nav-item > .dropdown-menu,
+.menu-item-has-children:focus > .dropdown-menu > .nav-item > .dropdown-menu,
+.menu-item-has-children:focus-within > .dropdown-menu > .nav-item > .dropdown-menu,
 .menu-item-has-children > .dropdown-menu.active > .nav-item > .dropdown-menu.active {
     background-color: transparent;
   }
@@ -1258,25 +1229,25 @@ html {
 /* Fix position for 3rd level of dropdown */
 
 @media (min-width: 1024px) {
-  .menu-item-has-children:hover > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item, 
-.menu-item-has-children:focus > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item, 
-.menu-item-has-children:focus-within > .dropdown-menu > .nav-item:focus > .dropdown-menu > .nav-item, 
+  .menu-item-has-children:hover > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item,
+.menu-item-has-children:focus > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item,
+.menu-item-has-children:focus-within > .dropdown-menu > .nav-item:focus > .dropdown-menu > .nav-item,
 .dropdown-menu.active.depth_1 > .nav-item {
     top: 3rem;
   }
 }
 
-.menu-item-has-children:hover > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item, 
-.menu-item-has-children:focus > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item, 
-.menu-item-has-children:focus-within > .dropdown-menu > .nav-item:focus > .dropdown-menu > .nav-item, 
+.menu-item-has-children:hover > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item,
+.menu-item-has-children:focus > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item,
+.menu-item-has-children:focus-within > .dropdown-menu > .nav-item:focus > .dropdown-menu > .nav-item,
 .dropdown-menu.active.depth_1 > .nav-item {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 
-.dark .menu-item-has-children:hover > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item, .dark 
-.menu-item-has-children:focus > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item, .dark 
-.menu-item-has-children:focus-within > .dropdown-menu > .nav-item:focus > .dropdown-menu > .nav-item, .dark 
+.dark .menu-item-has-children:hover > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item,.dark 
+.menu-item-has-children:focus > .dropdown-menu > .nav-item > .dropdown-menu > .nav-item,.dark 
+.menu-item-has-children:focus-within > .dropdown-menu > .nav-item:focus > .dropdown-menu > .nav-item,.dark 
 .dropdown-menu.active.depth_1 > .nav-item {
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
@@ -1496,6 +1467,21 @@ html {
   }
 }
 
+.pageContainer.no-bg {
+  background-color: transparent;
+}
+
+.dark .pageContainer.no-bg {
+  background-color: transparent;
+}
+
+.pageContainer.no-bg {
+  border-style: none;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .pageContainer:not(:last-child) {
   margin-bottom: 1.5rem;
 }
@@ -1564,13 +1550,11 @@ html {
 }
 
 .entry-title > a:hover {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
+  text-decoration-line: underline;
 }
 
 .entry-title > a:focus {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
+  text-decoration-line: underline;
 }
 
 .read_more_link {
@@ -1584,8 +1568,7 @@ html {
 }
 
 .read_more_link:hover {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
+  text-decoration-line: underline;
 }
 
 .read_more_link [data-fa-i2svg] {
@@ -1647,7 +1630,7 @@ label {
   color: rgb(249 250 251 / var(--tw-text-opacity));
 }
 
-input,  textarea {
+input, textarea {
   display: block;
   width: 100%;
   border-radius: 0.375rem;
@@ -1667,25 +1650,25 @@ input,  textarea {
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
-.dark input, .dark  textarea {
+.dark input,.dark  textarea {
   --tw-text-opacity: 1;
   color: rgb(249 250 251 / var(--tw-text-opacity));
 }
 
-input,  textarea {
+input, textarea {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.dark input, .dark  textarea {
+.dark input,.dark  textarea {
   --tw-border-opacity: 1;
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
-input:focus,  textarea:focus {
+input:focus, textarea:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
   --tw-ring-opacity: 1;
@@ -1698,7 +1681,7 @@ input, textarea {
   /* @apply focus:z-10; */
 }
 
-input.wpcf7-not-valid,  textarea.wpcf7-not-valid {
+input.wpcf7-not-valid, textarea.wpcf7-not-valid {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -1707,16 +1690,15 @@ input.wpcf7-not-valid,  textarea.wpcf7-not-valid {
   /* @apply dark:bg-red-700; */
 }
 
-label > span > input,  label > span > textarea {
+label > span > input, label > span > textarea {
   margin-top: 0.5rem;
 }
 
-input[type="submit"],  button[type="submit"] {
+input[type="submit"], button[type="submit"] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   display: block;
-  width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
   margin-left: auto;
@@ -1730,9 +1712,9 @@ input[type="submit"],  button[type="submit"] {
   text-align: center;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --tw-bg-opacity: 1;
@@ -1742,12 +1724,12 @@ input[type="submit"],  button[type="submit"] {
   border-radius: 0.375rem;
 }
 
-input[type="submit"]:hover,  button[type="submit"]:hover {
+input[type="submit"]:hover, button[type="submit"]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
-input[type="submit"]:focus,  button[type="submit"]:focus {
+input[type="submit"]:focus, button[type="submit"]:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
   outline: 2px solid transparent;
@@ -1756,7 +1738,7 @@ input[type="submit"]:focus,  button[type="submit"]:focus {
   border-color: rgb(29 78 216 / var(--tw-border-opacity));
 }
 
-input[type="submit"]:active,  button[type="submit"]:active {
+input[type="submit"]:active, button[type="submit"]:active {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
@@ -1818,27 +1800,25 @@ input[type="submit"]:active,  button[type="submit"]:active {
   text-align: center;
 }
 
-.entry-content a,  .no-results a {
+.entry-content a, .no-results a {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
-.entry-content a:hover,  .no-results a:hover {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
+.entry-content a:hover, .no-results a:hover {
+  text-decoration-line: underline;
 }
 
-.entry-content a:focus,  .no-results a:focus {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
+.entry-content a:focus, .no-results a:focus {
+  text-decoration-line: underline;
 }
 
-.entry-content a:hover,  .no-results a:hover {
+.entry-content a:hover, .no-results a:hover {
   --tw-text-opacity: 1;
   color: rgb(96 165 250 / var(--tw-text-opacity));
 }
 
-.entry-content a:focus,  .no-results a:focus {
+.entry-content a:focus, .no-results a:focus {
   --tw-text-opacity: 1;
   color: rgb(96 165 250 / var(--tw-text-opacity));
 }
@@ -1876,15 +1856,14 @@ input[type="submit"]:active,  button[type="submit"]:active {
   padding-bottom: 0.5rem;
   font-size: 1rem;
   font-weight: 500;
-  -webkit-text-decoration-line: none;
-          text-decoration-line: none;
+  text-decoration-line: none;
   line-height: 1.5rem;
   text-align: center;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --tw-bg-opacity: 1;
@@ -2015,7 +1994,7 @@ table tr:nth-child(even) {
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
-.entry-content ul,  .entry-content ol {
+.entry-content ul, .entry-content ol {
   list-style-type: disc;
   list-style-position: inside;
   margin-bottom: 1rem;
@@ -2088,9 +2067,9 @@ table tr:nth-child(even) {
 }
 
 .searchform input[type="text"] {
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2140,9 +2119,9 @@ table tr:nth-child(even) {
 }
 
 .wp-block-search .wp-block-search__input {
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2152,15 +2131,14 @@ table tr:nth-child(even) {
   padding: 0.5rem;
   font-size: 1rem;
   font-weight: 500;
-  -webkit-text-decoration-line: none;
-          text-decoration-line: none;
+  text-decoration-line: none;
   line-height: 1.5rem;
   text-align: center;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --tw-bg-opacity: 1;
@@ -2236,9 +2214,9 @@ table tr:nth-child(even) {
 }
 
 .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input {
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2361,7 +2339,6 @@ table tr:nth-child(even) {
   --tw-text-opacity: 1;
   color: rgb(30 64 175 / var(--tw-text-opacity));
   display: inline-block;
-  min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
   font-size: 0.875rem;
@@ -2386,7 +2363,6 @@ table tr:nth-child(even) {
   --tw-text-opacity: 1;
   color: rgb(153 27 27 / var(--tw-text-opacity));
   display: inline-block;
-  min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
   font-size: 0.875rem;
@@ -2419,8 +2395,7 @@ table tr:nth-child(even) {
 }
 
 .comment-reply-link:hover {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
+  text-decoration-line: underline;
 }
 
 .comment-reply-title {
@@ -2544,7 +2519,7 @@ table tr:nth-child(even) {
   color: rgb(209 213 219 / var(--tw-text-opacity));
 }
 
-.comment-form > p > input,  .comment-form > p > textarea {
+.comment-form > p > input, .comment-form > p > textarea {
   display: block;
   width: 100%;
   border-radius: 0.5rem;
@@ -2563,7 +2538,7 @@ table tr:nth-child(even) {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.dark .comment-form > p > input, .dark  .comment-form > p > textarea {
+.dark .comment-form > p > input,.dark  .comment-form > p > textarea {
   --tw-border-opacity: 1;
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -2572,7 +2547,7 @@ table tr:nth-child(even) {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.comment-form > p > input:focus,  .comment-form > p > textarea:focus {
+.comment-form > p > input:focus, .comment-form > p > textarea:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
   --tw-ring-opacity: 1;
@@ -2587,15 +2562,13 @@ table tr:nth-child(even) {
 }
 
 .comment-form a:hover {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
+  text-decoration-line: underline;
   --tw-text-opacity: 1;
   color: rgb(96 165 250 / var(--tw-text-opacity));
 }
 
 .comment-form a:focus {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
+  text-decoration-line: underline;
   --tw-text-opacity: 1;
   color: rgb(96 165 250 / var(--tw-text-opacity));
 }
@@ -2675,7 +2648,6 @@ table tr:nth-child(even) {
 }
 
 .comment-form .form-submit > input {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   border-width: 0px;
@@ -2705,9 +2677,9 @@ table tr:nth-child(even) {
   padding-right: 1.25rem;
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -2859,7 +2831,6 @@ table tr:nth-child(even) {
 @media (min-width: 1024px) {
   .sidebar {
     align-self: flex-start;
-    position: -webkit-sticky;
     position: sticky;
     top: 1.5rem;
   }
@@ -2947,41 +2918,41 @@ table tr:nth-child(even) {
   margin: 0px
 }
 
-.sidebar ul a,  .sidebar ol a {
+.sidebar ul a, .sidebar ol a {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
-.dark .sidebar ul a, .dark  .sidebar ol a {
+.dark .sidebar ul a,.dark  .sidebar ol a {
   --tw-text-opacity: 1;
   color: rgb(243 244 246 / var(--tw-text-opacity));
 }
 
-.sidebar ul a:hover,  .sidebar ol a:hover {
+.sidebar ul a:hover, .sidebar ol a:hover {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
 .sidebar ul a, .sidebar ol a {
   /* @apply dark:hover:text-blue-600; */
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.sidebar ul div,  .sidebar ul time {
+.sidebar ul div, .sidebar ul time {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
-.dark .sidebar ul div, .dark  .sidebar ul time {
+.dark .sidebar ul div,.dark  .sidebar ul time {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
-.sidebar ul div,  .sidebar ul time {
+.sidebar ul div, .sidebar ul time {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -3252,9 +3223,9 @@ table tr:nth-child(even) {
 }
 
 .footer_widget ul li a {
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -3439,9 +3410,9 @@ table tr:nth-child(even) {
 
 .page404 .page404__link {
   /* @apply dark:hover:bg-blue-600; */
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -3449,11 +3420,6 @@ table tr:nth-child(even) {
 .dark .dark\:border-gray-700 {
   --tw-border-opacity: 1;
   border-color: rgb(55 65 81 / var(--tw-border-opacity));
-}
-
-.dark .dark\:bg-gray-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
 .dark .dark\:bg-gray-800 {
