@@ -5,11 +5,11 @@
 get_header();
 if (is_active_sidebar('sidebar')) { ?>
     <section class="body-container">
-        <main class="px-6">
+        <main id="content">
 			<?php
 			if (have_posts()) {
 				?>
-                <section class="postsContainer">
+                <section class="posts-container">
 					<?php while (have_posts()) {
 
 						the_post();
@@ -25,7 +25,7 @@ if (is_active_sidebar('sidebar')) { ?>
 		<?php get_sidebar(); ?>
     </section>
 <?php } else { ?>
-    <main class="px-6 my-6">
+    <main id="content">
 		<?php
 		if (have_posts()) {
 			while (have_posts()) {
@@ -41,4 +41,3 @@ if (is_active_sidebar('sidebar')) { ?>
 <?php }
 get_footer();
 ?>
-

@@ -6,14 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class('text-black dark:text-white'); ?>>
+<body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
+    <a href="#content" class="skip-to-content"><?php _e('Skip to content', 'ism'); ?></a>
+    <a href="#navbar" class="skip-to-menu"><?php _e('Skip to menu', 'ism'); ?></a>
     <header class="site-header">
         <div>
             <?php
                 ism_site_logo();
             ?>
-            <button class="fixed bottom-5 right-5 rounded-full flex items-center bg-blue-600 text-black px-4 py-2" onClick="toggleDarkMode()"><i class="fa-solid fa-moon"></i></button>
+            <button class="fixed bottom-5 right-5 rounded-lg flex items-center bg-red-primary-500 text-black px-4 py-2" onClick="toggleDarkMode()"><i class="fa-solid fa-moon"></i></button>
             <button id="navBarToggle"><i class="fa-solid fa-bars w-4 h-4"></i></button>
             <?php
             wp_nav_menu(

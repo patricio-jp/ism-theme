@@ -4,7 +4,7 @@ get_header();
 
 if (is_active_sidebar('sidebar')) { ?>
 	<section class="body-container">
-		<main class="px-6">
+		<main id="content">
 			<?php
 			if (have_posts()) { ?>
 				<h2 class="page-title">
@@ -12,7 +12,7 @@ if (is_active_sidebar('sidebar')) { ?>
                 printf(esc_html__('Search results for: %s', 'ism'), '<span class="text-gray-800 dark:text-gray-200 italic">' . get_search_query() . '</span>');
 				?>
                 </h2>
-				<section class="postsContainer">
+				<section class="posts-container">
 					<?php while (have_posts()) {
 
 						the_post();
@@ -28,7 +28,7 @@ if (is_active_sidebar('sidebar')) { ?>
 		<?php get_sidebar(); ?>
 	</section>
 <?php } else { ?>
-	<main class="px-6 my-6">
+	<main id="content">
 		<?php
 		if (have_posts()) { ?>
 			<h2 class="page-title">

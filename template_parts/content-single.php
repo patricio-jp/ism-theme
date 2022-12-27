@@ -1,9 +1,9 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class('mx-auto w-full max-w-4xl p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'); ?>>
-    <header class="mb-4 lg:mb-6">
+<article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
+    <header class="post-header">
         <?php the_title('<h2 class="entry-title">', '</h2>') ?>
     </header>
 	<section class="entry-content">
-        <?php
+    <?php
         the_content();
 
         wp_link_pages(
@@ -14,16 +14,20 @@
                 'pagelink' => esc_html__( 'Page %', 'ism' ),
             )
         );
-        ?>
+    ?>
     </section>
 </article>
-<hr class="sectionDivider">
-    <?php
+<hr class="section-divider">
+<?php
+ism_related_posts();
+?>
+<hr class="section-divider">
+<?php
     $commentsEnabled = comments_open();
     if ($commentsEnabled || get_comments_number()) {
         comments_template();
     } else if (!$commentsEnabled) { ?>
-        <section id="comments"><h2 class="comments-title">Comments</h2><p class="no-comments"><i class="fa-solid fa-circle-info mr-4"></i><?php esc_html_e('Comments are closed.', 'ism'); ?></p></section>
+        <section id="comments"><p class="no-comments"><i class="fa-solid fa-circle-info mr-4"></i><?php esc_html_e('Comments are closed.', 'ism'); ?></p></section>
     <?php }
 
     $nextPost = is_rtl() ? '<i class="fa-solid fa-arrow-left mr-2"></i>' : '<i class="fas fa-arrow-right ml-2"></i>';
@@ -38,4 +42,4 @@
 		    'prev_text' => '<p class="meta-nav">' . $prevPost . $prevPostLabel . '</p><p class="post-title">%title</p>',
 	    )
     );
-    ?>
+?>

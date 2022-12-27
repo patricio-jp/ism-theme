@@ -12,6 +12,9 @@
 
 			// Enqueue general scripts in footer
 			wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/assets/js/scripts.js', array(), '1.0.0', true);
+			
+			// Enqueue general scripts in footer
+			wp_enqueue_script('flowbite', get_template_directory_uri() . '/node_modules/flowbite/dist/flowbite.js', array(), '1.5.4', true);
 
 			// Enqueue FontAwesome v6 icons
 			wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/318bbb0cc7.js', array(), '6.2.0', false);
@@ -101,21 +104,21 @@
 				'after_widget' => '',
 			));
 
-			// Footer 1
+			// Footer widgets
 			register_sidebar(array(
-				'name' => esc_html__('Footer 1', 'ism'),
-				'id' => 'footer-1',
+				'name' => esc_html__('Footer area', 'ism'),
+				'id' => 'footer-widgets',
 				'description' => esc_html__('Add widgets here.', 'ism'),
-				'before_widget' => '<section class="footer_widget">',
+				'before_widget' => '<section class="footer-widget">',
 				'after_widget' => '</section>',
 			));
 
-			// Footer 2
+			/*// Footer 2
 			register_sidebar(array(
 				'name' => esc_html__('Footer 2', 'ism'),
 				'id' => 'footer-2',
 				'description' => esc_html__('Add widgets here.', 'ism'),
-				'before_widget' => '<section class="footer_widget">',
+				'before_widget' => '<section class="footer-widget">',
 				'after_widget' => '</section>',
 			));
 
@@ -124,9 +127,9 @@
 				'name' => esc_html__('Footer 3', 'ism'),
 				'id' => 'footer-3',
 				'description' => esc_html__('Add widgets here.', 'ism'),
-				'before_widget' => '<section class="footer_widget">',
+				'before_widget' => '<section class="footer-widget">',
 				'after_widget' => '</section>',
-			));
+			));*/
 
 		}
 	}

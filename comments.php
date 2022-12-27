@@ -9,7 +9,7 @@ $commentsCount = get_comments_number();
 ?>
 
 <section id="comments">
-    <h2 class="comments-title">
+    <h3 class="comments-title">
         <?php if ('1' === $commentsCount) : ?>
             <?php esc_html_e('1 comment', 'ism'); ?>
         <?php else : ?>
@@ -21,7 +21,7 @@ $commentsCount = get_comments_number();
             );
             ?>
         <?php endif; ?>
-    </h2><!-- .comments-title -->
+    </h3><!-- .comments-title -->
 
     <ol class="comment-list">
         <?php
@@ -59,8 +59,8 @@ $commentsCount = get_comments_number();
     comment_form(
         array(
             'title_reply' => esc_html__('Leave a comment', 'ism'),
-            'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
-            'title_reply_after'  => '</h2>',
+            'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title">',
+            'title_reply_after'  => '</h3>',
             'format' => 'html5'
         )
     );

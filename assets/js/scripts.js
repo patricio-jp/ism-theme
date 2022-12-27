@@ -43,7 +43,7 @@ document.querySelector('#navBarToggle').addEventListener('click', () => {
 const toggleDropdown = (e) => {
     e.preventDefault();
     const elementClicked = e.target;
-    console.log(elementClicked);
+    // console.log(elementClicked);
     if (elementClicked.classList.contains('dropdownToggle')) {
         // If click <span>
         const parent = elementClicked.parentNode.parentNode;

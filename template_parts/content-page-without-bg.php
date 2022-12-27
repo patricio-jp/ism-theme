@@ -1,4 +1,4 @@
-<article class="pageContainer no-bg">
+<article class="page-container no-bg">
     <header class="page-header">
         <?php
         the_title('<h2 class="entry-title">', '</h2>');

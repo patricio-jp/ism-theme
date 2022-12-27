@@ -4,12 +4,12 @@
  */
 get_header();
 ?>
-	<main class="page-featured-image mb-6">
+	<main id="content" class="page-featured-image">
 		<?php
 		while (have_posts()) {
 			the_post();
 			?>
-        <article class="mx-auto">
+        <article>
             <header class="page-header" style="background-image: url(<?php echo ism_post_thumbnail_url(); ?>)">
 				<div class="bg-overlay"></div>
 				<?php

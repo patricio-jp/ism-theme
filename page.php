@@ -4,7 +4,7 @@
  */
 get_header();
 ?>
-<main class="px-6 my-6">
+<main id="content">
 <?php
 while (have_posts()) {
     the_post();

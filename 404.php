@@ -1,7 +1,7 @@
 <?php
 get_header();
 ?>
-<main class="page404">
+<main class="page404" id="content">
     <section>
         <h1 class="page404__title"><?php esc_html_e('404', 'ism'); ?></h1>
         <h2 class="page404__subtitle"><?php esc_html_e('Page not found', 'ism'); ?></h2>
