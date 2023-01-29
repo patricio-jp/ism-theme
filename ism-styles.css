@@ -370,6 +370,11 @@ code {
     @apply dark:text-gray-50;
     /* @apply lg:hidden; */
 }
+
+.site-title a {
+    @apply text-inherit hover:text-inherit focus:text-inherit;
+    @apply hover:no-underline focus:no-underline;
+}
 /* End of logo styles */
 /* End of header styles */
 
@@ -1202,10 +1207,11 @@ body:not(.single) .post.sticky {
     /* @apply text-gray-600 dark:text-gray-400; */
 }
 
-.top-footer .site-info .footer-site-link {
+.top-footer .site-info .footer-site-link, .top-footer .footer-site-title a {
     @apply flex items-center;
     @apply text-gray-900 dark:text-gray-50;
     @apply hover:no-underline focus:no-underline;
+    @apply hover:text-inherit;
     @apply mb-2;
 }
 
@@ -1216,6 +1222,7 @@ body:not(.single) .post.sticky {
 
 .top-footer .site-info .footer-site-title {
     @apply text-lg font-semibold;
+
     @apply my-0;
 }
 
