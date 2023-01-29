@@ -1,6 +1,11 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
     <header class="post-header">
-        <?php the_title('<h2 class="entry-title">', '</h2>') ?>
+        <?php
+            ism_category_badges();
+            the_title('<h2 class="entry-title">', '</h2>');
+            get_template_part('template_parts/post-author');
+        ?>
+        <hr class="section-divider">
     </header>
 	<section class="entry-content">
     <?php
@@ -30,7 +35,7 @@ ism_related_posts();
         <section id="comments"><p class="no-comments"><i class="fa-solid fa-circle-info mr-4"></i><?php esc_html_e('Comments are closed.', 'ism'); ?></p></section>
     <?php }
 
-    $nextPost = is_rtl() ? '<i class="fa-solid fa-arrow-left mr-2"></i>' : '<i class="fas fa-arrow-right ml-2"></i>';
+    /* $nextPost = is_rtl() ? '<i class="fa-solid fa-arrow-left mr-2"></i>' : '<i class="fas fa-arrow-right ml-2"></i>';
     $prevPost = is_rtl() ? '<i class="fa-solid fa-arrow-right ml-2"></i>' : '<i class="fas fa-arrow-left mr-2"></i>';
 
     $nextPostLabel = esc_html__('Next post', 'ism');
@@ -41,5 +46,5 @@ ism_related_posts();
 		    'next_text' => '<p class="meta-nav">' . $nextPostLabel . $nextPost . '</p><p class="post-title">%title</p>',
 		    'prev_text' => '<p class="meta-nav">' . $prevPost . $prevPostLabel . '</p><p class="post-title">%title</p>',
 	    )
-    );
+    ); */
 ?>

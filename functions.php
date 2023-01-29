@@ -14,7 +14,7 @@
 			wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/assets/js/scripts.js', array(), '1.0.0', true);
 			
 			// Enqueue general scripts in footer
-			wp_enqueue_script('flowbite', get_template_directory_uri() . '/node_modules/flowbite/dist/flowbite.js', array(), '1.5.4', true);
+			// wp_enqueue_script('flowbite', get_template_directory_uri() . '/node_modules/flowbite/dist/flowbite.js', array(), '1.5.4', true);
 
 			// Enqueue FontAwesome v6 icons
 			wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/318bbb0cc7.js', array(), '6.2.0', false);

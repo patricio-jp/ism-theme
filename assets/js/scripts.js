@@ -49,7 +49,7 @@ const toggleDropdown = (e) => {
         const parent = elementClicked.parentNode.parentNode;
         // console.log("Clicked span");
         // console.log(parent);
-        parent.querySelector('.dropdown-menu').classList.toggle('active');
+        parent.querySelector('.dropdown-menu').classList.toggle('show');
         elementClicked.querySelector('[data-fa-i2svg]').classList.toggle('fa-caret-down');
         elementClicked.querySelector('[data-fa-i2svg]').classList.toggle('fa-caret-up');
     } else if (elementClicked.hasAttribute('data-fa-i2svg')) {
@@ -57,7 +57,7 @@ const toggleDropdown = (e) => {
         const parent = elementClicked.parentNode.parentNode.parentNode;
         // console.log("Clicked svg");
         // console.log(parent);
-        parent.querySelector('.dropdown-menu').classList.toggle('active');
+        parent.querySelector('.dropdown-menu').classList.toggle('show');
         elementClicked.classList.toggle('fa-caret-up');
         elementClicked.classList.toggle('fa-caret-down');
     } else {
@@ -65,7 +65,7 @@ const toggleDropdown = (e) => {
         const parent = elementClicked.parentNode.parentNode.parentNode.parentNode;
         // console.log("Clicked path");
         // console.log(parent);
-        parent.querySelector('.dropdown-menu').classList.toggle('active');
+        parent.querySelector('.dropdown-menu').classList.toggle('show');
         elementClicked.parentNode.classList.toggle('fa-caret-up');
         elementClicked.parentNode.classList.toggle('fa-caret-down');
     }

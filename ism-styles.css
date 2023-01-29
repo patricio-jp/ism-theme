@@ -35,25 +35,25 @@ h2 {
 h3 {
     @apply text-2xl;
     @apply font-bold;
-    @apply mb-2;
+    @apply mb-3;
 }
 
 h4 {
     @apply text-xl;
     @apply font-bold;
-    @apply mb-2;
+    @apply mb-3;
 }
 
 h5 {
     @apply text-lg;
     @apply font-bold;
-    @apply mb-2;
+    @apply mb-3;
 }
 
 h6 {
     @apply text-base;
     @apply font-bold;
-    @apply mb-2;
+    @apply mb-3;
 }
 
 h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-child), h5:not(:first-child), h6:not(:first-child) {
@@ -79,6 +79,10 @@ ul {
 ol {
     @apply list-decimal;
     @apply list-inside;
+}
+
+ul > li, ol > li {
+    @apply mb-2;
 }
 
 li > ol, li > ul {
@@ -452,6 +456,10 @@ code {
     @apply justify-between;
 }
 
+.dropdown-menu > .menu-item {
+    @apply mb-0;
+}
+
 .nav-link .dropdownToggle, .dropdown-menu .dropdownToggle {
     @apply text-base;
     @apply leading-4;
@@ -466,7 +474,7 @@ code {
     @apply mt-0;
 }
 
-.dropdown-menu.active {
+.dropdown-menu.show {
     @apply flex;
     @apply flex-col;
     @apply rounded;
@@ -474,13 +482,10 @@ code {
     @apply mx-4;
     @apply lg:mx-0;
     @apply lg:absolute;
-}
-
-.dropdown-menu.active > .menu-item {
     @apply bg-gray-200 dark:bg-gray-600;
 }
 
-.dropdown-menu.active > .dropdown-menu {
+.dropdown-menu.show > .dropdown-menu {
     @apply flex;
     @apply flex-col;
 }
@@ -488,7 +493,7 @@ code {
 .menu-item-has-children:hover > .dropdown-menu,
 .menu-item-has-children:focus > .dropdown-menu,
 .menu-item-has-children:focus-within > .dropdown-menu,
-.menu-item-has-children > .dropdown-menu.active {
+.menu-item-has-children > .dropdown-menu.show {
     @apply lg:flex;
     @apply lg:flex-col;
     @apply lg:bg-gray-300;
@@ -497,9 +502,38 @@ code {
     /* @apply lg:mt-3; */
     @apply lg:absolute;
     @apply lg:right-0;
-    @apply lg:z-50;
+    @apply lg:z-10;
     /* @apply text-blue-500; */
 }
+
+/* To <li> tags in menu (when it has 3 levels) */
+.menu-item-has-children:hover > .dropdown-menu > .nav-item,
+.menu-item-has-children:focus > .dropdown-menu > .nav-item,
+.menu-item-has-children:focus-within > .dropdown-menu > .nav-item {
+    @apply lg:flex;
+    @apply lg:flex-col;
+    /* @apply lg:bg-gray-200; */
+    /* @apply lg:dark:bg-gray-600; */
+    @apply lg:rounded;
+}
+
+/* Fix background for 3rd level of dropdown */
+.menu-item-has-children:hover > .dropdown-menu > .nav-item > .dropdown-menu,
+.menu-item-has-children:focus > .dropdown-menu > .nav-item > .dropdown-menu,
+.menu-item-has-children:focus-within > .dropdown-menu > .nav-item > .dropdown-menu,
+.menu-item-has-children > .dropdown-menu.show > .nav-item > .dropdown-menu.show {
+    @apply bg-gray-300 dark:bg-gray-700;
+    @apply lg:bg-gray-200 lg:dark:bg-gray-600;
+}
+
+/* Fix position for 3rd level of dropdown */
+.dropdown-menu.depth_1 {
+    @apply lg:inset-0 lg:left-full;
+    @apply lg:w-full lg:h-min;
+    @apply lg:ml-0;
+    /* @apply lg:left-full; */
+}
+
 /* End of navbar styles */
 
 /* Main styles (pages/posts body) */
@@ -545,6 +579,7 @@ body > main:not(.page-featured-image) {
 }
 
 .page-container.no-bg {
+    @apply p-0;
     @apply bg-transparent;
     @apply dark:bg-transparent;
     @apply border-none;
@@ -595,7 +630,7 @@ body > main:not(.page-featured-image) {
 }
 
 .posts-container {
-    @apply w-full;
+    @apply w-full max-w-4xl mx-auto;
 }
 
 .post {
@@ -612,8 +647,14 @@ body > main:not(.page-featured-image) {
     @apply relative;
 }
 
-.posts-container .post .entry-title {
+.post .post-header .entry-title {
     @apply my-0;
+    @apply break-words;
+}
+
+.single .post:not(.related-post) .entry-title {
+    @apply mb-4;
+    @apply break-words;
 }
 
 .post-date {
@@ -621,8 +662,9 @@ body > main:not(.page-featured-image) {
     @apply inline-block mb-1;
 }
 
-body:not(.blog) .post {
+body:not(.blog) .post, .related-posts {
     @apply w-full max-w-4xl lg:max-w-4xl xl:max-w-5xl;
+    @apply mx-auto;
 }
 
 .posts-container > .post:not(:last-child),
@@ -658,6 +700,36 @@ body:not(.single) .post.sticky {
     @apply text-black dark:text-white;
     @apply mb-2;
 }
+
+/* Post author */
+.post-author {
+    /* @apply flex items-center; */
+    /* @apply space-x-4; */
+    @apply mb-2;
+    @apply text-sm;
+}
+
+/* .post-author .post-author__avatar > img {
+    @apply w-16 h-16;
+    @apply rounded-full;
+}
+
+.post-author .post-author__info {
+    @apply flex flex-col justify-center;
+}
+
+.post-author .post-author__info p {
+    @apply mb-0;
+} */
+
+.post-author .post-author__name {
+    @apply font-bold;
+}
+
+/* .post-author .post-author__info .post-author__bio {
+    @apply text-gray-600 dark:text-gray-400;
+    @apply italic;
+} */
 
 /* Categories badges */
 .category-badges {
@@ -710,6 +782,7 @@ body:not(.single) .post.sticky {
     @apply mx-auto;
     @apply my-6;
     @apply border-t border-gray-200 dark:border-gray-700;
+    @apply clear-both;
 }
 /* End of main styles */
 
@@ -719,11 +792,36 @@ body:not(.single) .post.sticky {
     @apply gap-4;
 }
 
+.related-posts-container .related-post {
+    @apply p-0;
+}
+
 .related-posts-container .related-post .post-header {
-    @apply flex flex-row items-center;
-    @apply lg:flex-col;
-    @apply space-x-2 space-y-2;
-    @apply mb-2;
+    @apply flex flex-col items-center;
+    /* @apply mb-3; */
+}
+
+.related-post .post-header .entry-title {
+    @apply pt-4 mt-0;
+}
+
+.related-post .post-header .entry-title, .related-post .entry-content {
+    @apply px-4;
+}
+
+.related-post .entry-content {
+    @apply pb-4;
+}
+
+.related-post .post-image {
+    @apply w-full h-40 max-h-40;
+    @apply overflow-hidden;
+    @apply rounded-t-lg;
+}
+
+.related-posts-container .related-post .post-image img {
+    @apply w-full h-40 max-h-40;
+    @apply object-center object-cover;
 }
 
 /* Comments section */
@@ -750,6 +848,10 @@ body:not(.single) .post.sticky {
     @apply rounded-lg;
     @apply border border-gray-200 dark:border-gray-700;
     @apply shadow-sm;
+}
+
+#comments .comment.bypostauthor .comment-body {
+    @apply bg-red-primary-500 bg-opacity-20;
 }
 
 #comments .comment-meta {
@@ -925,7 +1027,7 @@ body:not(.single) .post.sticky {
 
 .sidebar ul, .sidebar ol {
     @apply flex flex-col;
-    @apply space-y-3;
+    /* @apply space-y-3; */
 }
 
 .sidebar ul.menu, .sidebar ul.sub-menu {
@@ -1114,7 +1216,7 @@ body:not(.single) .post.sticky {
 
 .top-footer .site-info .footer-site-title {
     @apply text-lg font-semibold;
-    @apply mb-0;
+    @apply my-0;
 }
 
 .top-footer .site-info .footer-site-logo {
@@ -1134,6 +1236,11 @@ body:not(.single) .post.sticky {
     @apply md:even:pl-8;
     @apply lg:border-l lg:border-gray-200 lg:dark:border-gray-700;
     @apply lg:pl-8;
+}
+
+/* Fix left border on 5th & 9th widget */
+.top-footer .footer-widget:nth-child(5), .top-footer .footer-widget:nth-child(9) {
+    @apply lg:border-l-0;
 }
 
 .top-footer .footer-widget > p {
@@ -1173,3 +1280,18 @@ body:not(.single) .post.sticky {
     @apply hover:text-red-primary-600;
 }
 /* End of footer styles */
+
+/* 404 page */
+.page404 section {
+    @apply mx-6;
+    @apply flex;
+    @apply flex-col;
+    @apply items-center;
+    @apply justify-center;
+    /* @apply h-96; */
+}
+
+.page404 .page404__title {
+    @apply text-7xl font-bold;
+    @apply text-red-primary-600;
+}
