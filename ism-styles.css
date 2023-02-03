@@ -9,6 +9,34 @@ Text Domain: ism-theme
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Optima';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Optima'), url('OPTIMA.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Optima Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Optima Italic'), url('Optima_Italic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Optima Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Optima Medium'), url('Optima Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Optima Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Optima Bold'), url('OPTIMA_B.woff') format('woff');
+}
+
 /* General styles & generic elements */
 body {
     @apply text-gray-900;
@@ -931,7 +959,7 @@ body:not(.single) .post.sticky {
 }
 
 #comments .comment-form {
-    @apply grid sm:grid-cols-2;
+    @apply grid grid-cols-1;
     @apply gap-2;
     @apply mx-auto my-6 p-6;
     @apply bg-white dark:bg-gray-800;

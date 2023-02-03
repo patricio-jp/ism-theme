@@ -3,7 +3,7 @@ function ism_site_logo($args = array(), $display = true) {
 	$site_title = get_bloginfo('name');
 
 	$customLogoID = get_theme_mod('custom_logo');
-	$customLogoHTML = '<a href="%1$s" class="site-logo-container"><img src="%2$s" alt="%3$s" class="site-logo"><h1 class="site-title">%3$s</h1></a>';
+	$customLogoHTML = '<a href="%1$s" class="site-logo-container"><img src="%2$s" height="128" width="128" alt="%3$s" class="site-logo"><h1 class="site-title">%3$s</h1></a>';
 	$customLogo = sprintf($customLogoHTML, esc_url(home_url('/')), esc_url(wp_get_attachment_image_url($customLogoID, 'full')), esc_html($site_title));
 
 
@@ -50,7 +50,7 @@ function ism_footer_logo($args = array(), $display = true) {
 	$site_title = get_bloginfo('name');
 
 	$customLogoID = get_theme_mod('custom_logo');
-	$customLogoHTML = '<a href="%1$s" class="footer-site-link"><img src="%2$s" alt="%3$s" class="footer-site-logo"><h2 class="footer-site-title">%3$s</h2></a>';
+	$customLogoHTML = '<a href="%1$s" class="footer-site-link"><img src="%2$s" height="80" width="80" alt="%3$s" class="footer-site-logo"><h2 class="footer-site-title">%3$s</h2></a>';
 	$customLogo = sprintf($customLogoHTML, esc_url(home_url('/')), esc_url(wp_get_attachment_image_url($customLogoID, 'full')), esc_html($site_title));
 
 	$logo = apply_filters('get_custom_logo', $customLogo);
