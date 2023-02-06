@@ -17,6 +17,7 @@
             ?>
             <button class="fixed bottom-5 right-5 rounded-lg flex items-center bg-red-primary-500 text-black px-4 py-2 z-50" onClick="toggleDarkMode()"><i class="fa-solid fa-moon"></i></button>
             <button id="navBarToggle"><i class="fa-solid fa-bars w-4 h-4"></i></button>
+            <input type="checkbox" id="menu-state" aria-hidden="true" class="hidden">
             <?php
             wp_nav_menu(
                 array(
@@ -24,7 +25,7 @@
                     'container' => false,
                     // 'menu_class' => 'test',
                     'fallback_cb' => '__return false',
-                    'items_wrap' => '<nav id="navbar" class="hidden"><ul class="navbar-nav %2$s">%3$s</ul></nav>',
+                    'items_wrap' => '<nav id="navbar"><ul class="navbar-nav %2$s">%3$s</ul></nav>',
                     'depth' => 3,
                     'walker' => new ism_navmenu_walker()
                 )

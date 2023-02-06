@@ -13,28 +13,108 @@ Text Domain: ism-theme
     font-family: 'Optima';
     font-style: normal;
     font-weight: normal;
-    src: local('Optima'), url('OPTIMA.woff') format('woff');
+    src: local('Optima'), url("assets/fonts/OPTIMA.woff") format('woff');
 }
 
 @font-face {
     font-family: 'Optima Italic';
     font-style: normal;
     font-weight: normal;
-    src: local('Optima Italic'), url('Optima_Italic.woff') format('woff');
+    src: local('Optima Italic'), url("assets/fonts/Optima_Italic.woff") format('woff');
 }
 
 @font-face {
     font-family: 'Optima Medium';
     font-style: normal;
     font-weight: normal;
-    src: local('Optima Medium'), url('Optima Medium.woff') format('woff');
+    src: local('Optima Medium'), url("assets/fonts/Optima\ Medium.woff") format('woff');
 }
 
 @font-face {
     font-family: 'Optima Bold';
     font-style: normal;
     font-weight: normal;
-    src: local('Optima Bold'), url('OPTIMA_B.woff') format('woff');
+    src: local('Optima Bold'), url("assets/fonts/OPTIMA_B.woff") format('woff');
+}
+
+@font-face {
+    font-family: 'Quattrocento Regular';
+    src: local('Quattrocento'), url("assets/fonts/Quattrocento-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Quattrocento Bold';
+    src: local('Quattrocentro Bold'), url("assets/fonts/Quattrocento-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Anonymous Pro';
+    src: url("assets/fonts/AnonymousPro-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Anonymous Pro Bold';
+    src: url("assets/fonts/AnonymousPro-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Anonymous Pro Italic';
+    src: url("assets/fonts/AnonymousPro-Italic.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Anonymous Pro Bold Italic';
+    src: url("assets/fonts/AnonymousPro-BoldItalic.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Arsenica';
+    src: url("assets/fonts/ArsenicaTrial-Regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Arsenica Bold';
+    src: url("assets/fonts/ArsenicaTrial-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Arsenica Italic';
+    src: url("assets/fonts/ArsenicaTrial-Italic.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Arsenica Bold Italic';
+    src: url("assets/fonts/ArsenicaTrial-BoldItalic.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Arsenica Extra Bold';
+    src: url("assets/fonts/ArsenicaTrial-Extrabold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Arsenica Extra Bold Italic';
+    src: url("assets/fonts/ArsenicaTrial-ExtraboldItalic.ttf") format('truetype');
+}
+
+.font-1 {
+    font-family: 'Optima Bold';
+}
+
+.font-2 {
+    font-family: 'Quattrocento Bold';
+}
+
+.font-3 {
+    font-family: 'Anonymous Pro Bold';
+}
+
+.font-4 {
+    font-family: 'Arsenica Bold';
+}
+
+.font-5 {
+    font-family: 'Arsenica Extra Bold';
 }
 
 /* General styles & generic elements */
@@ -357,11 +437,13 @@ code {
 }
 
 .site-header > div {
+    @apply relative;
     @apply flex;
     @apply justify-between;
     @apply items-center;
-    @apply flex-col;
-    @apply lg:flex-row;
+    @apply max-h-16;
+    /* @apply flex-col; */
+    /* @apply lg:flex-row; */
     @apply px-4;
     @apply md:px-6;
     @apply py-2.5;
@@ -375,28 +457,38 @@ code {
 .site-header .site-logo-container {
     @apply flex;
     @apply items-center;
-    @apply mb-4;
-    @apply lg:mb-0;
+    @apply mb-0;
+    /* @apply lg:mb-0; */
     @apply hover:no-underline;
     @apply focus:no-underline;
 }
 
 .site-header .site-logo-container .site-logo {
     @apply mr-3;
-    @apply max-w-[5rem];
-    @apply md:max-w-[6rem];
-    @apply lg:max-w-[7rem];
+    @apply max-w-[2.5rem];
+    @apply md:max-w-[3rem];
+    /* @apply lg:max-w-[7rem]; */
 }
 
 .site-header .site-title {
     @apply m-0;
-    @apply text-3xl;
-    @apply lg:text-4xl;
+    visibility: hidden;
+    @apply text-2xl leading-6;
+    /* @apply lg:text-4xl; */
     @apply font-extrabold;
     @apply text-gray-900;
     @apply hover:underline-offset-0;
     @apply dark:text-gray-50;
+    font-family: 'Quattrocento Bold', monospace;
+    /* @apply line-clamp-2; */
     /* @apply lg:hidden; */
+}
+
+@media screen and (min-width: 410px) {
+    .site-header .site-title {
+        @apply visible;
+        /* @apply lg:text-5xl; */
+    }
 }
 
 .site-title a {
@@ -424,21 +516,47 @@ code {
     @apply dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus-within:bg-gray-600;
 }
 
+
 #navbar {
-    @apply w-full;
-    @apply rounded;
+    @apply absolute;
+    @apply top-16;
+    @apply -ml-4;
+    /* width: calc(100% - 2rem); */
+    @apply w-full h-0;
+    @apply z-10;
+    visibility: hidden;
+    /* transition: visibility 0s linear 1s; */
+    /* transition-delay: 0s; */
+    @apply transition-all;
+    /* @apply w-full; */
+    /* @apply rounded; */
     /* @apply overflow-hidden; */
-    @apply bg-gray-300 dark:bg-gray-700;
-    @apply lg:block;
-    @apply lg:w-min;
+    @apply bg-gray-200 dark:bg-gray-800;
+    @apply overflow-hidden lg:overflow-visible;
     @apply lg:bg-transparent lg:dark:bg-transparent;
+    @apply lg:static lg:visible;
+    @apply lg:block;
+    @apply lg:w-max lg:h-min;
+}
+
+#menu-state:checked ~ #navbar {
+    /* @apply -bottom-56; */
+    /* transition: visibility 0s linear 0s; */
+    /* transition-delay: 1s; */
+    visibility: visible;
+    /* @apply h-[80vh]; */
+    /* @apply border-t-2 border-gray-300 dark:border-gray-700; */
+    height: calc(100vh - 4rem);
+    /* @apply block; */
+    @apply lg:block;
+    
 }
 
 .navbar-nav {
     @apply list-none;
     @apply flex flex-col;
     @apply w-full;
-    @apply lg:min-w-max;
+    @apply lg:max-w-max;
     @apply lg:flex-row;
     @apply lg:items-center;
     @apply lg:justify-between;
@@ -447,6 +565,7 @@ code {
 .menu-item {
     @apply min-w-max;
     @apply lg:relative;
+    @apply lg:mb-0;
     /* @apply max-w-[32ch]; */
 }
 
@@ -515,7 +634,7 @@ code {
     @apply mx-4;
     @apply lg:mx-0;
     @apply lg:absolute;
-    @apply bg-gray-200 dark:bg-gray-600;
+    @apply bg-gray-300 dark:bg-gray-700;
 }
 
 .dropdown-menu.show > .dropdown-menu {
@@ -555,7 +674,7 @@ code {
 .menu-item-has-children:focus > .dropdown-menu > .nav-item > .dropdown-menu,
 .menu-item-has-children:focus-within > .dropdown-menu > .nav-item > .dropdown-menu,
 .menu-item-has-children > .dropdown-menu.show > .nav-item > .dropdown-menu.show {
-    @apply bg-gray-300 dark:bg-gray-700;
+    @apply bg-gray-200 dark:bg-gray-800;
     @apply lg:bg-gray-200 lg:dark:bg-gray-600;
 }
 
@@ -572,6 +691,10 @@ code {
 /* Main styles (pages/posts body) */
 body > main:not(.page-featured-image) {
     @apply p-6;
+}
+
+body > main.page_without-title-bg {
+    @apply pt-0;
 }
 
 .body-container {

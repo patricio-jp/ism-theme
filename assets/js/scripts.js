@@ -32,9 +32,13 @@ const removeThemePreference = () => {
 // NavBar toggle
 document.querySelector('#navBarToggle').addEventListener('click', () => {
     const navBar = document.querySelector('#navbar');
+    const check = document.querySelector('#menu-state');
+    // console.log(check.checked);
+    check.checked = !check.checked;
+    // console.log(check.checked);
     document.querySelector('#navBarToggle [data-fa-i2svg]').classList.toggle('fa-xmark');
     document.querySelector('#navBarToggle [data-fa-i2svg]').classList.toggle('fa-bars');
-    navBar.classList.toggle('hidden');
+    // navBar.classList.toggle('hidden');
 
     // Dropdown menu
 

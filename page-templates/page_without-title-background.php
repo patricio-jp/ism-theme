@@ -4,7 +4,7 @@
  */
 get_header();
 ?>
-<main id="content">
+<main id="content" class="page_without-title-bg">
 <?php
 while (have_posts()) {
     the_post();

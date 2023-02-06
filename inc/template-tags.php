@@ -3,7 +3,7 @@ function ism_site_logo($args = array(), $display = true) {
 	$site_title = get_bloginfo('name');
 
 	$customLogoID = get_theme_mod('custom_logo');
-	$customLogoHTML = '<a href="%1$s" class="site-logo-container"><img src="%2$s" height="128" width="128" alt="%3$s" class="site-logo"><h1 class="site-title">%3$s</h1></a>';
+	$customLogoHTML = '<a href="%1$s" class="site-logo-container"><img src="%2$s" height="128" width="128" alt="%3$s" class="site-logo"><h1 class="site-title line-clamp-2">%3$s</h1></a>';
 	$customLogo = sprintf($customLogoHTML, esc_url(home_url('/')), esc_url(wp_get_attachment_image_url($customLogoID, 'full')), esc_html($site_title));
 
 
@@ -14,7 +14,7 @@ function ism_site_logo($args = array(), $display = true) {
 	$defaults = array(
 		'logo'        => '%1$s',
 		'logo_class'  => '',
-		'title'       => '<h1 class="site-title"><a href="%1$s">%2$s</a></h1>',
+		'title'       => '<h1 class="site-title line-clamp-2"><a href="%1$s">%2$s</a></h1>',
 		'title_class' => '',
 		'home_wrap'   => '%1$s',
 		'single_wrap' => '%1$s',
